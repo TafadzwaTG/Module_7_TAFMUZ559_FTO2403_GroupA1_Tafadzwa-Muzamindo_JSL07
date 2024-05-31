@@ -1,24 +1,29 @@
+// Wait for the DOM content to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
-    const cardForm = document.getElementById('cardForm');
-    const modal = document.getElementById('modal');
-    const certificateContent = document.getElementById('certificateContent');
-    const closeModal = document.querySelector('.close');
+   // Select necessary DOM elements
+    const cardForm = document.getElementById('cardForm');  // Form element
+    const modal = document.getElementById('modal');  // Modal element
+    const certificateContent = document.getElementById('certificateContent'); // Certificate content area
+    const closeModal = document.querySelector('.close'); // Close button inside the modal
   
     // Hide the modal initially
     modal.style.display = 'none';
-  
+
+  // Add event listener to the form submission
     cardForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+      e.preventDefault(); // Prevent default form submission
   
       // 🚨 Get input values
-      const studentNameInput = document.getElementById('studentName');
-      const personalMessageInput = document.getElementById('personalMessage') ;
-      const courseNameInput = document.getElementById('courseName')
-  ; 
-      const studentName = studentNameInput.value;
-      const personalMessage = personalMessageInput.value;
+      const studentNameInput = document.getElementById('studentName'); // Student name input field
+      const personalMessageInput = document.getElementById('personalMessage') ; // Personal message input field
+      const courseNameInput = document.getElementById('courseName') // Course name input field
+
+  ;  // Extract input values
+      const studentName = studentNameInput.value; // Student name
+      const personalMessage = personalMessageInput.value;  // Personal message
       const courseName = courseNameInput ? courseNameInput.value : "a course"; // Fallback to "a course" if no input
-  
+
+         // Validate input values
       if (studentName.trim() === '' || personalMessage.trim() === '') {
         alert('Please fill in all fields');
         return;
@@ -47,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
     //  🚨 Close the modal when the close button is clicked
     closeModal.addEventListener('click', function () {
-      modal.style.display = 'none';
+      modal.style.display = 'none';   // Validate input values
       
     });
   });
